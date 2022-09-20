@@ -11,14 +11,18 @@
 <th:block layout:fragment="body" th:remove="tag">
   <!-- Start of body content specific to page -->
   <div class="px-4 py-5 my-5">
-    <h3 class="display-5 fw-bold">Type a Greeting</h3>
+    <h3 class="display-5 fw-bold">Greet Page</h3>
+    <h6> Welcome to the most basic webpage on the website, Greet.</h6>
 
     <form action="/greet" method="GET" id="greetForm">
       <div>
-        <label for="greetField">To whom?</label>
+        <label for="greetField">Type a name</label>
         <input name="name" id="greetField">
-        <button>Greetings!</button>
+        <label for="greetField2">Type a grade</label>
+        <input name="grade" id="greetField2">
+        <button>Submit</button>
         <p th:text="'Greetings, ' + ${name} + '!'"></p>
+        <p th:text="'Your grade is, ' + ${grade}"></p>
       </div>
     </form>
   </div>

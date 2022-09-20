@@ -3,7 +3,7 @@ package com.nighthawk.spring_portfolio.controllers;
  * Web Content with Spring MVCSpring Example: https://spring.io/guides/gs/serving-web-con
  */
 
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Controller;   
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,13 +14,16 @@ public class Greet {
     // @GetMapping handles GET request for /greet, maps it to greeting() method
     @GetMapping("/greet")
     // @RequestParam handles variables binding to frontend, defaults, etc
-    public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+    public String greeting(@RequestParam(name="name", required=true, defaultValue="World") String name,
+    @RequestParam(name="grade", required=true, defaultValue="0") Integer grade, Model model) {
 
         // model attributes are visible to Thymeleaf when HTML is "pre-processed"
         model.addAttribute("name", name);
 
+        model.addAttribute("grade", grade.toString());
+
         // load HTML VIEW (greet.html)
-        return "greet"; 
+        return "greet";
 
     }
 
